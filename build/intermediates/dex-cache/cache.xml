@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Android\FlappyDemo\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a89e304e9c27317e78282aea3c58f997294db337">
+        <dex dex="D:\Android\FlappyDemo\android\build\intermediates\pre-dexed\debug\core-1.0-4989fb7290c554229d088ba4deced40e3541971f.jar" />
+    </item>
+
+</items>
