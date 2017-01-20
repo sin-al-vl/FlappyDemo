@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.mygame.FlappyDemo;
 
 /**
@@ -59,9 +60,9 @@ public class MenuState extends State implements InputProcessor {
         sb.begin();
 
         sb.draw(background, 0, 0);
-        sb.draw(playBtn, camera.position.x - playBtn.getWidth() / 2, camera.position.y);
-        sb.draw(exitBtn, camera.position.x + FlappyDemo.WIDTH/4 - exitBtn.getWidth(),
-                camera.position.y + FlappyDemo.HEIGHT/4 - exitBtn.getHeight());
+        sb.draw(playBtn, camera.position.x - playBtn.getWidth()/2, camera.position.y);
+        //sb.draw(exitBtn, camera.position.x + FlappyDemo.WIDTH/4 - exitBtn.getWidth()/2,
+                //camera.position.y + FlappyDemo.HEIGHT/4 - exitBtn.getHeight());
 
         sb.end();
     }
@@ -91,20 +92,26 @@ public class MenuState extends State implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-//        System.out.println(FlappyDemo.WIDTH - exitBtn.getWidth());
-//        System.out.println(FlappyDemo.WIDTH);
-//        System.out.println(0);
-//        System.out.println(exitBtn.getHeight());
-        if(screenX > FlappyDemo.WIDTH/2 - playBtn.getWidth() &&
-                screenX < FlappyDemo.WIDTH/2 + playBtn.getWidth() &&
-                screenY < FlappyDemo.HEIGHT/2 - 30 &&
-                screenY > FlappyDemo.HEIGHT/2 - playBtn.getHeight()*2 - 14)
+
+//        if(screenX > camera.position.x - playBtn.getWidth()/2 &&
+//                screenX < camera.position.x + playBtn.getWidth()/2 &&
+//                screenY < camera.position.y + playBtn.getHeight()/2&&
+//                screenY > camera.position.y - playBtn.getHeight()/2)
+//            return play = true;
+
+        Vector3 touchPoint = camera.unproject(new Vector3(screenX, screenY, 0));
+
+        if(touchPoint.x > camera.viewportWidth/2 - playBtn.getWidth()/2 &&
+                touchPoint.x < camera.viewportWidth/2 + playBtn.getWidth()/2 &&
+                touchPoint.y < camera.position.y + playBtn.getHeight()/2 &&
+                touchPoint.y > camera.position.y - playBtn.getHeight()/2)
             return play = true;
-        else if(screenX > FlappyDemo.WIDTH - exitBtn.getWidth()*2 &&
-                screenX < FlappyDemo.WIDTH &&
-                screenY > 0 &&
-                screenY < exitBtn.getHeight()*2)
-            return exit = true;
+
+//        else if(screenX > camera.position.x + FlappyDemo.WIDTH/2 - exitBtn.getWidth() &&
+//                screenX < camera.position.x + FlappyDemo.WIDTH/2 &&
+//                screenY > camera.position.y - FlappyDemo.HEIGHT/2 &&
+//                screenY < camera.position.y - FlappyDemo.HEIGHT/2 + exitBtn.getHeight())
+//            return exit = true;
 
         return true;
     }

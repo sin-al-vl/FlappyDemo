@@ -2,11 +2,49 @@
 <items version="2" >
 
     <item
-        jar="D:\Android\FlappyDemo\core\build\libs\core-1.0.jar"
-        jumboMode="false"
+        is-multidex="false"
+        jar="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
         revision="23.0.2"
-        sha1="a89e304e9c27317e78282aea3c58f997294db337">
-        <dex dex="D:\Android\FlappyDemo\android\build\intermediates\pre-dexed\debug\core-1.0-4989fb7290c554229d088ba4deced40e3541971f.jar" />
+        sha1="ceacad48fb0e9c8a433264b4a63c361609d078fe">
+        <dex dex="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\pre-dexed\debug\instant-run-bootstrap_e2eb2c06dbfb858d6c43730fa1e5985df7647bc7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Александр\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.7.2\ccf86a454b5ce7029c243da22f432f2edca0a34e\gdx-1.7.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ccf86a454b5ce7029c243da22f432f2edca0a34e">
+        <dex dex="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\pre-dexed\debug\gdx-1.7.2_95780d25ac01b905d22d0a068feaf107e9b29026.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="08e50f5e6246f118d0e78125d9448e6203253360">
+        <dex dex="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\pre-dexed\debug\instant-run_4146cedb182880571ef5c6f2b5ae63d7b10a1e78.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Александр\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.7.2\275914cb71c76e4d3ce1e4037cf8a9cce8f7c842\gdx-box2d-1.7.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="275914cb71c76e4d3ce1e4037cf8a9cce8f7c842">
+        <dex dex="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\pre-dexed\debug\gdx-box2d-1.7.2_f550c0c111ea9ef12e2b1231c680d302ab3eed02.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Александр\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.7.2\5211971f79423cda216422e62c1ec8684603c3b2\gdx-backend-android-1.7.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5211971f79423cda216422e62c1ec8684603c3b2">
+        <dex dex="D:\Android\AndroidProjects\FlappyDemo\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.7.2_7d5c31ba670b2274348ec0817ae7f95d6658a192.jar" />
     </item>
 
 </items>

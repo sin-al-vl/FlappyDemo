@@ -31,7 +31,7 @@ public class GameStateManager {
         saver = new Saver();
 
         Date now = new Date();
-        dayOrNight = now.getHours() > 7 || now.getHours() < 18;
+        dayOrNight = now.getHours() > 7 && now.getHours() < 18;
     }
 
     public boolean isDayOrNight() {

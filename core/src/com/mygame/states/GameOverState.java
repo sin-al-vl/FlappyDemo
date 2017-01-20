@@ -6,6 +6,8 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Logger;
 import com.mygame.FlappyDemo;
 
 /**
@@ -67,8 +69,9 @@ public class GameOverState extends State implements InputProcessor {
         sb.draw(background, 0, 0);
         sb.draw(gameOver, camera.position.x - gameOver.getWidth() / 2, camera.position.y);
         sb.draw(playBtn, camera.position.x - playBtn.getWidth() / 2, camera.position.y - playBtn.getHeight());
-        sb.draw(exitBtn, camera.position.x + FlappyDemo.WIDTH/4 - exitBtn.getWidth(),
-                camera.position.y + FlappyDemo.HEIGHT/4 - exitBtn.getHeight());
+//        sb.draw(exitBtn, camera.position.x + FlappyDemo.WIDTH/4 - exitBtn.getWidth(),
+//                camera.position.y + FlappyDemo.HEIGHT/4 - exitBtn.getHeight());
+
         font.draw(sb, "Score: " + gameStateManager.score, camera.position.x - playBtn.getWidth() / 2 + 25,
                 camera.position.y - playBtn.getHeight() - font.getCapHeight());
         font.draw(sb, "Best: " + gameStateManager.getSaver().getRecPoint(),camera.position.x - playBtn.getWidth() / 2 + 25,
@@ -106,20 +109,32 @@ public class GameOverState extends State implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-//        System.out.println(FlappyDemo.WIDTH/2 - playBtn.getWidth());
-//        System.out.println(FlappyDemo.WIDTH/2 + playBtn.getWidth());
-//        System.out.println(FlappyDemo.HEIGHT/2 -20 );
-//        System.out.println(FlappyDemo.HEIGHT/2 + playBtn.getHeight()*2 - 36 );
-        if(screenX > FlappyDemo.WIDTH/2 - playBtn.getWidth() &&
-                screenX < FlappyDemo.WIDTH/2 + playBtn.getWidth() &&
-                screenY > FlappyDemo.HEIGHT/2 - 20 &&
-                screenY < FlappyDemo.HEIGHT/2 + playBtn.getHeight()*2 - 36)
+
+//        if(screenX > camera.viewportWidth/2 - playBtn.getWidth()/2 &&
+//                screenX < camera.viewportWidth/2 + playBtn.getWidth()/2 &&
+//                screenY < camera.position.y + playBtn.getHeight()/2 &&
+//                screenY > camera.position.y - playBtn.getHeight()/2)
+//            return restart = true;
+        Vector3 touchPoint = camera.unproject(new Vector3(screenX, screenY, 0));
+
+        if(touchPoint.x > camera.viewportWidth/2 - playBtn.getWidth()/2 &&
+                touchPoint.x < camera.viewportWidth/2 + playBtn.getWidth()/2 &&
+                touchPoint.y < camera.position.y &&
+                touchPoint.y > camera.position.y - 2*playBtn.getHeight()/2)
             return restart = true;
-        else if(screenX > FlappyDemo.WIDTH - exitBtn.getWidth()*2 &&
-                screenX < FlappyDemo.WIDTH &&
-                screenY > 0 &&
-                screenY < exitBtn.getHeight()*2)
-            return exit = true;
+
+
+//        if(screenX > camera.position.x - playBtn.getWidth()/2 &&
+//                screenX < camera.position.x + playBtn.getWidth()/2 &&
+//                screenY < camera.position.y + playBtn.getHeight()/2 &&
+//                screenY > camera.position.y - playBtn.getHeight()/2)
+//            return restart = true;
+
+//        else if(screenX > camera.position.x + FlappyDemo.WIDTH/2 - exitBtn.getWidth() &&
+//                screenX < camera.position.x + FlappyDemo.WIDTH/2 &&
+//                screenY > camera.position.y - FlappyDemo.HEIGHT/2 &&
+//                screenY < camera.position.y - FlappyDemo.HEIGHT/2 + exitBtn.getHeight())
+//            return exit = true;
 
         return true;
     }

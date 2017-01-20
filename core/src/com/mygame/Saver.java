@@ -37,7 +37,7 @@ public class Saver {
         WriteRecord();
     }
 
-    public void WriteRecord ()
+    private void WriteRecord ()
     {
         try {
             FileOutputStream fos = new FileOutputStream(FILE_RECORDS);
